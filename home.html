@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="owner" content="Шевчук Катерина Михайлівна" />
+    <link rel="stylesheet" href="/css/mycss.css" />
+    <link rel="stylesheet" href="/css/cssforhome.css" />
+    <title>Головна</title>
+  </head>
+  <body
+    onload="showMessage()"
+    onresize="alert('Ви змінили розмір вікна!')"
+    onbeforeunload="return confirm('Ви дійсно хочете покинути сторінку?')"
+  >
+    <script>
+      function showMessage() {
+        alert("Вітаємо! Тільки сьогодні: знижка на онлайн-замовлення 5%.");
+      }
+    </script>
+
+    <header class="header">
+      <nav>
+        <a href="menu.html" title="Меню">Меню</a>
+        <a href="home.html">Головна</a>
+        <a href="about_me.html">Про мене</a>
+        <a href="about_company.html">Про компанію</a>
+        <a href="news.html">Новини</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="box">
+        <h2 align="center" id="header" draggable="true">Ласкаво просимо до «Здорова Планета!»</h2>
+      </div>
+
+      <ul>
+        <h3 id="header2" draggable="true">Наші переваги:</h3>
+        <li>
+          <h4>Широкий асортимент:</h4>
+          ліки від найкращих виробників, перевірені часом та нові інноваційні
+          рішення.
+        </li>
+        <li>
+          <h4>Консультації фармацевтів:</h4>
+          кваліфікований персонал завжди готовий надати поради щодо вибору
+          препаратів.
+        </li>
+        <li>
+          <h4>Зручне замовлення онлайн:</h4>
+          оформлюйте замовлення прямо на сайті та отримуйте доставку або
+          забирайте з найближчої аптеки.
+        </li>
+        <li>
+          <h4>Доступні ціни:</h4>
+          ми прагнемо зробити лікування доступним для кожного.
+        </li>
+        <li>
+          <h4>Акції та знижки:</h4>
+          постійно оновлювані спеціальні пропозиції для наших клієнтів.
+        </li>
+      </ul>
+      <br />
+      <h3 id="header3" draggable="true">Як замовити:</h3>
+      <ol type="I" style="color: rgb(0, 0, 0)" value="1">
+        <li id="item1" class="list-item" style="font-weight: regulary">
+          Виберіть потрібні вам товари в нашому каталозі.
+        </li>
+        <li id="item2" class="list-item" style="font-weight: regulary">
+          Додайте їх до кошика та оформіть замовлення.
+        </li>
+        <li id="item3" class="list-item" style="font-weight: regulary">
+          Оберіть спосіб доставки: кур'єром або самовивіз з аптеки.
+        </li>
+      </ol>
+      <br />
+
+      <dl>
+        <h4>Рекомендації для здоров'я:</h4>
+        <dt>Регулярні медичні огляди:</dt>
+        <dd>
+          Відвідуйте лікаря не менше ніж раз на рік для профілактичних оглядів.
+        </dd>
+
+        <dt>Збалансоване харчування:</dt>
+        <dd>
+          Споживайте різноманітні продукти, багаті вітамінами та мінералами.
+        </dd>
+
+        <dt>Фізична активність:</dt>
+        <dd>Займайтеся фізичними вправами щонайменше 30 хвилин на день.</dd>
+
+        <dt>Гідратація:</dt>
+        <dd>Пийте достатню кількість води щодня для підтримки гідратації.</dd>
+
+        <dt>Відмова від самопризначення ліків:</dt>
+        <dd>Не використовуйте ліки без консультації з лікарем.</dd>
+
+        <dt>Слідкування за термінами придатності:</dt>
+        <dd><b>
+          Регулярно перевіряйте терміни придатності ліків і викидайте
+          прострочені.
+        </b></dd>
+      </dl>
+      <br />
+    </div>
+    <script>
+      // Функція для зміни стилю елемента
+      function changeStyle(element, message) {
+        alert(message);  // Виведення повідомлення
+        element.classList.toggle('highlight');  // Зміна стилю елемента
+      }
+    
+      // Події 
+      const header = document.getElementById('header');
+      const header2 = document.getElementById('header2');
+      const header3 = document.getElementById('header3');
+      header2.ondblclick = () => changeStyle(header2, 'Подвійний клік на заголовку!');
+      header2.ondrag = () => changeStyle(header2, 'Перетаскування заголовка!');
+      header3.onmousedown = () => changeStyle(header3, 'Натискання на заголовок!');
+      header.onmousemove = () => changeStyle(header, 'Рух миші над заголовком!');
+      header.onmouseout = () => changeStyle(header, 'Миша покинула заголовок!');
+      header.onmouseover = () => changeStyle(header, 'Миша над заголовком!');
+    
+      // Події для <b> та <i> тегів
+      document.querySelector('b').onclick = () => changeStyle(document.querySelector('b'), 'Натиснуто на жирний текст!');
+      document.querySelector('i').onclick = () => changeStyle(document.querySelector('i'), 'Натиснуто на курсивний текст!');
+    
+    </script>
+  </body>
+  <footer>
+    <div class="container">
+      <div class="contact-info">
+        <small>
+          Наша адреса:
+          <address id="contact" title="Our address">
+            123 вул.Небесної Сотні, м.Чернівці, Україна
+          </address>
+        </small>
+        <small>
+          Телефон:
+          <br />
+          <em class="important" lang="ua">+380123456789</em>
+        </small>
+        <small>
+          Електронна пошта:
+          <br />
+          <em class="important" lang="ua">info@zdorova-planeta.com</em>
+        </small>
+      </div>
+      <div class="footer-credit">
+        <p>Created by K. Shevchuk</p>
+      </div>
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,97 @@
+.menu-navigation {
+    margin: 20px;
+}
+
+menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+menu > li {
+    position: relative;
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 4px;
+    transition: background-color 0.3s;
+}
+
+menu > li:hover {
+    background-color: #e0e0e0;
+}
+
+menu li ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+menu li ul li {
+    padding: 5px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin-bottom: 2px;
+}
+
+menu li ul li:hover {
+    background-color: #dcdcdc;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#scrollingText {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+command {
+    display: inline-block;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+command:hover {
+    background-color: #0056b3;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 20px;
+}
+
+.card {
+    background-color: #a75af07c;
+    padding: 16px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 300px;
+    text-align: center; 
+}
+
+.card:hover {
+    background-color: #a75af0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #555;
+    font-size: 22px;
+    margin-left: 20px;
+}

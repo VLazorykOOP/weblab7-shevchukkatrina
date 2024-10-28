@@ -1,0 +1,79 @@
+ul {
+    list-style: none; 
+    padding-left: 0; 
+}
+
+ul li {
+    position: relative; 
+    padding-left: 20px; 
+    font-size: 17px; 
+}
+
+ul li::before {
+    content: ''; 
+    position: absolute;
+    left: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 5px;
+    height: 5px; 
+    background-color: black; 
+    border-radius: 50%;
+}
+
+ul li h4 {
+    font-size: 17px; 
+    display: inline; /* Встановлюємо inline, щоб текст продовжувався на одному рядку */
+    margin-right: 5px; /* Додаємо відступ, щоб відокремити заголовок від тексту */
+}
+
+.box {
+    border: 0px solid #030303;
+    border-radius: 15px;
+    background-color: rgb(24, 195, 64);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.list-item {
+    font-weight: normal; /* Виправлено: 'normal' замість 'regulary' */
+    color: rgb(0, 0, 0); /* Колір тексту */
+    padding: 5px 0; /* Відступи між пунктами списку */
+    transition: background-color 0.3s; /* Анімація при наведені */
+}
+
+.list-item:hover {
+    background-color: rgba(0, 0, 255, 0.1); /* Легкий фон при наведенні */
+    border-radius: 5px; /* Заокруглені краї */
+}
+
+dl {
+    background-color: #f9f9f9; /* Світлий фон для списку */
+    padding: 15px; /* Внутрішні відступи */
+    border: 1px solid #ddd; /* Сіра рамка навколо списку */
+    border-radius: 8px; /* Заокруглені краї */
+}
+
+dt {
+    font-weight: bold; /* Жирний шрифт для терміна */
+    color: #a75af0; /* Колір терміна */
+    margin-top: 10px; /* Відступ зверху для терміна */
+}
+
+dd {
+    margin-left: 20px; /* Відступ зліва для опису */
+    margin-bottom: 10px; /* Відступ знизу для опису */
+    color: #0f0f0f; /* Колір тексту опису */
+    font-size: 16px; 
+}
+
+.highlight {
+    background-color: rgba(0, 0, 255, 0.1); /* Колір фону для підсвічування */
+    color: black; /* Колір тексту */
+    font-weight: bold; /* Жирний шрифт */
+    padding: 2px 4px; /* Внутрішні відступи */
+    border-radius: 3px; /* Закруглені кути */
+    transition: background-color 0.3s ease; /* Анімація при зміні кольору */
+}
+

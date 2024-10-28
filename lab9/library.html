@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/library.css" />
+    <title>Моя бібліотека медіа-ресурсів</title>
+</head>
+<body>
+    <header>
+        <h1>Моя бібліотека медіа-ресурсів</h1>
+    </header>
+    
+    <section>
+        <h2>Відео ресурси</h2>
+        <video controls width="400">
+            <source src="videos/2_5460617039267777684.mp4" type="video/mp4">
+            
+            Ваш браузер не підтримує елемент <code>video</code>.
+        </video>
+        
+        <h2>Аудіо ресурси</h2>
+        <audio controls>
+            <source src="Арсен Мірзоян Листя Жовтня.mp3" type="audio/mp3">
+            <source src="audio1.ogg" type="audio/ogg">
+            Ваш браузер не підтримує елемент <code>audio</code>.
+        </audio>
+    </section>
+
+    <section>
+        <h2>Додати новий медіа-ресурс</h2>
+        <form action="videos/" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+            <fieldset id="media-info" class="media-form">
+                <legend id="media-legend" title="Деталі медіа" style="font-weight: bold;">Деталі медіа</legend>
+
+                <label for="media-title">Назва:</label>
+                <input type="text" id="media-title" name="media-title" required>
+
+                <label for="media-type">Тип медіа:</label>
+                <select id="media-type" name="media-type" required>
+                    <optgroup label="Виберіть тип медіа">
+                        <option value="audio">Аудіо</option>
+                        <option value="video">Відео</option>
+                    </optgroup>
+                </select>
+
+                <label for="media-file">Файл медіа:</label>
+                <input type="file" id="media-file" name="media-file" accept="audio/*,video/*" multiple required>
+
+                <label for="description">Опис:</label>
+                <textarea id="description" name="description" cols="30" rows="4" maxlength="250" required></textarea>
+
+                <label for="upload-week">Виберіть дату завантаження:</label>
+                <input type="date" id="upload-week" name="upload-week">
+
+                <button type="submit" id="submit-btn">Додати до бібліотеки</button>
+                <button type="reset">Очистити форму</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <h2>Прогрес завантаження</h2>
+        <progress id="upload-progress" value="0" max="100"></progress>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Моя бібліотека медіа-ресурсів</p>
+    </footer>
+</body>
+</html>

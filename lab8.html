@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="Windows-1251" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота №8</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+        display: block;
+        margin: 0 auto;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Лабораторна робота №8</h1>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <button onclick="startAnimation()">Почати анімацію</button>
+    <button onclick="stopAnimation()">Зупинити анімацію</button>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let angle = 0;
+      let moveX = 0;
+      let scaleX = 1;
+      let animationFrameId;
+      let isAnimating = false;
+
+      function drawShapes() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.moveTo(10, 200);
+        ctx.lineTo(580, 200);
+        ctx.moveTo(200, 20);
+        ctx.lineTo(200, 390);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        for (let i = 250; i <= 500; i += 50) {
+          ctx.moveTo(i, 195);
+          ctx.lineTo(i, 205);
+        }
+        for (let i = 100; i <= 250; i += 50) {
+          ctx.moveTo(195, i);
+          ctx.lineTo(205, i);
+        }
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const xAxisLabels = ["1", "2", "3", "4", "5", "6"];
+        const yAxisLabels = ["-1", "0", "1", "2"];
+        xAxisLabels.forEach((label, i) => ctx.fillText(label, 250 + i * 50, 215));
+        yAxisLabels.forEach((label, i) => ctx.fillText(label, 185, 250 - i * 50));
+
+        ctx.save();
+        ctx.translate(225, 175);
+        ctx.rotate((angle * Math.PI) / 180);
+        ctx.beginPath();
+        ctx.arc(0, 0, 25, 0, 2 * Math.PI);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.arc(475, 175, 25, 0, 2 * Math.PI);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillRect(450, 100, 50, 50);
+        ctx.strokeRect(450, 100, 50, 50);
+
+        ctx.fillRect(200, 100, 50, 50);
+        ctx.strokeRect(200, 100, 50, 50);
+
+        ctx.fillRect(250 + moveX, 250, 50, 50);
+        ctx.strokeRect(250 + moveX, 250, 50, 50);
+
+        ctx.fillRect(400, 250, 50, 50);
+        ctx.strokeRect(400, 250, 50, 50);
+
+        ctx.save();
+        ctx.translate(300, 50);
+        ctx.rotate((angle * Math.PI) / 180);
+        ctx.fillRect(-50, -25, 100, 50);
+        ctx.strokeRect(-50, -25, 100, 50);
+        ctx.restore();
+
+        ctx.save();
+        ctx.translate(350, 200);
+        ctx.scale(scaleX, 1);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 50, 100, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.moveTo(200, 250);
+        ctx.lineTo(250, 250);
+        ctx.lineTo(225, 200);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(450, 250);
+        ctx.lineTo(500, 250);
+        ctx.lineTo(475, 200);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      function animateShapes() {
+        angle += 2;
+        moveX = (moveX + 1) % 300;
+        scaleX = scaleX === 1 ? 1.1 : 1;
+
+        drawShapes();
+        if (isAnimating) {
+          animationFrameId = requestAnimationFrame(animateShapes);
+        }
+      }
+
+      function startAnimation() {
+        if (!isAnimating) {
+          isAnimating = true;
+          animateShapes();
+        }
+      }
+
+      function stopAnimation() {
+        isAnimating = false;
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      drawShapes();
+    </script>
+  </body>
+</html>

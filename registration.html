@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css\cssforregisration.css" />
+    <title>Форма для виведення елементів</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Прізвище Ім'я По-батькові:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Електронна пошта:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <label for="age">Вік:</label>
+      <input type="number" id="age" name="age" min="1" /><br /><br />
+
+      <button type="button" id="runTaskBtn">Run Task</button>
+    </form>
+
+    <h3>Результати:</h3>
+    <textarea id="results" rows="10" cols="50" readonly></textarea>
+
+    <script>
+      document
+        .getElementById("runTaskBtn")
+        .addEventListener("click", function () {
+          const form = document.getElementById("myForm");
+          const resultsTextarea = document.getElementById("results");
+          let elementsList = [];
+
+          // Отримання всіх елементів форми
+          for (let element of form.elements) {
+            if (element.name) {
+              // Перевіряємо, що елемент має ім'я
+              elementsList.push(
+                `${element.tagName}: ${element.name} (value: ${element.value})`
+              );
+            }
+          }
+
+          // Виведення результатів у текстове поле та консоль
+          resultsTextarea.value = elementsList.join("\n");
+          console.log(elementsList);
+        });
+    </script>
+  </body>
+</html>

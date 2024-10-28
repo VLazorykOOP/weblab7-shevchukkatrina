@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Student" />
+    <meta
+      name="description"
+      content="Форма введення інформації про товари аптеки"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <title>Аптека-форми</title>
+  </head>
+
+  <body>
+    <h1>Форма введення інформації про товари аптеки</h1>
+    <div class="article">
+      <form
+        id="productForm"
+        action="#"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <fieldset>
+          <legend>Основна інформація</legend>
+
+          <label for="productName">Назва товару:</label>
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+            required
+            autofocus
+            placeholder="Введіть назву товару"
+            list="productOptions"
+          />
+
+          <datalist
+            id="productOptions"
+            title="Список можливих товарів"
+            dir="ltr"
+          >
+            <option value="Анальгін"></option>
+            <option value="Ібупрофен"></option>
+            <option value="Цитрик"></option>
+            <option value="Абіфол"></option>
+            <option value="Оварімедін"></option>
+          </datalist>
+
+          <label for="productPrice">Ціна (грн):</label>
+          <input
+            type="number"
+            id="productPrice"
+            name="productPrice"
+            required
+            min="1"
+            placeholder="Введіть ціну товару"
+          />
+
+          <label for="productType">Тип товару:</label>
+          <select id="productType" name="productType" required>
+            <optgroup label="Ліки">
+              <option value="анальгетик">Анальгетик</option>
+              <option value="антибіотик">Антибіотик</option>
+              <option value="противірусні препарати">
+                Противірусні препарати
+              </option>
+              <option value="протигрибкові препарати">
+                Протигрибкові препарати
+              </option>
+              <option value="антигістамінні препарати">
+                Антигістамінні препарати
+              </option>
+              <option value="протизапальні препарати">
+                Протизапальні препарати
+              </option>
+              <option value="гормональні препарати">
+                Гормональні препарати
+              </option>
+              <option value="антидепресанти">Антидепресанти</option>
+              <option value="антикоагулянти">Антикоагулянти</option>
+              <option value="вакцини">Вакцини</option>
+            </optgroup>
+            <optgroup label="Косметика">
+              <option value="крем">Крем</option>
+              <option value="лосьйон">Лосьйон</option>
+              <option value="шампунь">Шампунь</option>
+              <option value="догляд за нігтями">Догляд за нігтями</option>
+              <option value="доглядова косметика для обличчя">
+                Доглядова костемтика для обличчя
+              </option>
+            </optgroup>
+          </select>
+
+          <label for="productImage">Зображення товару:</label>
+          <input
+            type="file"
+            id="productImage"
+            name="productImage"
+            accept="image/*"
+            multiple
+          />
+        </fieldset>
+
+        <details>
+          <summary id="itemSummary" class="item-summary" lang="uk">
+            Додаткова інформація
+          </summary>
+          <fieldset>
+            <label for="productDescription">Опис товару:</label>
+            <textarea
+              id="productDescription"
+              name="productDescription"
+              maxlength="200"
+              rows="4"
+              placeholder="Опис товару"
+            ></textarea>
+
+            <label for="releaseDate">Дата випуску:</label>
+            <input type="month" id="releaseDate" name="releaseDate" />
+
+            <label for="releaseDate">Термін придатності:</label>
+            <input type="month" id="releaseDate" name="releaseDate" />
+          </fieldset>
+        </details>
+        <progress id="progressStatus" value="0" max="100"></progress>
+
+        <div class="btn-group">
+          <button type="submit" formmethod="post" formnovalidate>
+            Відправити
+          </button>
+          <button type="reset">Очистити</button>
+        </div>
+
+        <output
+          id="outputMessage"
+          class="success"
+          lang="uk"
+          dir="ltr"
+          name="outputResult"
+        ></output>
+        <!-- <script>
+            const outputMessage = document.getElementById('outputMessage');
+          
+            document.getElementById('productForm').addEventListener('submit', function(event) {
+              event.preventDefault(); 
+              outputMessage.textContent = 'Форма успішно відправлена!';
+            });
+          </script>
+         -->
+      </form>
+    </div>
+  </body>
+</html>
